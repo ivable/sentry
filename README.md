@@ -74,7 +74,7 @@ https://github.com/ivable/ivable-config
 For Sentry to work you'll need a DNS key (see your project setting in Sentry). This DNS key should be configured in a property file so that it is picked up by the [Configuration Framework](https://support.intershop.com/kb/index.php/Display/2R9141).
 Set the following key
 ```
-io.sentry.dns=<you-DSN-KEY>
+io.sentry.dns=<your-DSN-KEY>
 ```
 ## Logback
 Add the following logback appender to your project.
@@ -112,6 +112,11 @@ An example can be found [here](https://github.com/ivable/ivable-config/blob/deve
 	<!-- END SENTRY.IO -->
 </included>
 ```
+# Usage
+For plain java / pipelet / pipeline the logback appender is enough to log to Sentry. Check the appender config if messages are not logged.
+
+For frontend include `IncSentryJS.isml` in your main isml template to capture javascript errors.
+
 # Testing
 If you included the `ac_sentry_io_test` cartridge in your assembly you can use the following URL to test the integration.
 ```
