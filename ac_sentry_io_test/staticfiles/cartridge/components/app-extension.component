@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010" scope="global">
+    <fulfill requirement="selectedCartridge" value="ac_sentry_io_test" of="intershop.B2CResponsive.Cartridges"/>
+</components>

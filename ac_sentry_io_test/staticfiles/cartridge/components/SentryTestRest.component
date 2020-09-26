@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://www.intershop.de/component/2010"	scope="global">	
+	<implementation name="com.ivable.common.SentryTestResourceImpl" implements="AbstractRestResource" class="com.ivable.common.sentry.test.rest.resource.SentryTestResource">
+		<requires name="name" contract="String" cardinality="1..1"/>
+	</implementation>
+	<fulfill requirement="subResource" of="intershop.B2CWebShop.RESTAPI.root">
+		<instance name="com.ivable.common.SentryTestResource" with="com.ivable.common.SentryTestResourceImpl">
+			<fulfill requirement="name" value="sentrytest" />
+		</instance>
+	</fulfill>
+	
+	<fulfill requirement="resourceACLCartridge" value="ac_sentry_io_test" of="intershop.B2CWebShop.RESTAPI.AuthorizationService"/>
+</components>

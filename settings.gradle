@@ -1,0 +1,15 @@
+// define root project name
+rootProject.name = 'ivable-common'
+
+def excludes = ['gradle', '.gradle', 'target', 'build', 'bin', 'reports', 'buildSrc']
+ 
+// define the included projects
+def includes = settings.rootDir.listFiles().findAll {
+    it.isDirectory() && ! (it.name.startsWith('.') || it.name.startsWith('..') || excludes.contains(it.name))
+}.collect {
+    it.getName()
+}.toArray(new java.lang.String[0])
+ 
+// include list of detected subprojects
+include includes
+
