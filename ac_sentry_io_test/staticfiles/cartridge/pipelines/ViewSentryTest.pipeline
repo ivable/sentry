@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@Group Test-->
+
+<pipeline:Pipeline xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pipeline="http://www.intershop.de/pipeline/2010"
+    name="ViewSentryTest" overrideMode="Inherit" type="view">
+<!--@Location 0,0-->
+  <nodes xsi:type="pipeline:StartNode" nodeID="StartNode_ESq34L9yEemuJqzMorBwtw" name="Start">
+    <nodeSuccessors name="next" next="InteractionNode_ESq34b9yEemuJqzMorBwtw"/>
+  </nodes>
+<!--@Location 0,2-->
+  <nodes xsi:type="pipeline:InteractionNode" nodeID="InteractionNode_ESq34b9yEemuJqzMorBwtw">
+    <template referencedName="common/SentryTestPage"/>
+  </nodes>
+</pipeline:Pipeline>

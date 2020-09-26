@@ -1,0 +1,32 @@
+apply plugin: 'java-cartridge'
+apply plugin: 'static-cartridge'
+apply plugin: 'com.intershop.gradle.cartridge-resourcelist'
+apply plugin: 'com.intershop.gradle.isml'
+
+intershop 
+{
+    displayName = 'Adapter-Sentry.io'
+    description = 'integration sentry.io'
+    
+    //add output of the plugin the cartridge package
+    packages {
+        cartridge {
+            srcDir(isml2classMain)
+        }
+    }
+}
+
+
+dependencies 
+{
+    compile 'com.google.inject:guice'
+    compile group: 'com.intershop.platform', name: 'core'
+    compile group: 'com.intershop.platform', name: 'jmx'
+    compile 'io.sentry:sentry-logback:1.7.30'
+    compile 'io.sentry:sentry:1.7.30'
+    
+    testCompile 'org.mockito:mockito-core'
+    testCompile 'org.hamcrest:hamcrest-core'
+    testCompile 'org.hamcrest:hamcrest-library'
+    testCompile 'junit:junit'
+}

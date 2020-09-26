@@ -1,5 +1,20 @@
-.gradle
-/build/
+#ICM
+target/
+gradle_user_home/
+.settings/
+.project
+.classpath
+*.project
+**/rebel.xml
+bin/
+
+#studio code generate folder
+**/.apt_generated/
+
+# Gradle Files
+**/build/
+**/.gradle
+**/gradle-downloads/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -10,5 +25,5 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
+#dont commit gradle wrapper, should be different per organization
+gradle-wrapper.properties

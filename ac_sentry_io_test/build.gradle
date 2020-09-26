@@ -1,0 +1,33 @@
+import org.apache.tools.ant.Project
+
+apply plugin: 'java-cartridge'
+apply plugin: 'static-cartridge'
+apply plugin: 'com.intershop.gradle.cartridge-resourcelist'
+apply plugin: 'com.intershop.gradle.isml'
+
+intershop 
+{
+    displayName = 'Adapter -Sentry_io_test'
+    
+    //add output of the plugin the cartridge package
+    packages {
+        cartridge {
+            srcDir(isml2classMain)
+        }
+    }
+}
+
+
+dependencies 
+{
+   compile 'com.google.inject:guice'
+   compile group: 'com.intershop.platform', name: 'core'
+   compile group: 'com.intershop.platform', name: 'jmx'
+   compile group: 'com.intershop.platform', name: 'rest'
+   compile group: 'javax.ws.rs', name: 'javax.ws.rs-api'
+   
+   compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind'
+   compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations'
+   compile group: 'com.fasterxml.jackson.core', name: 'jackson-core'
+   compile project(':ac_sentry_io')
+}
