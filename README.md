@@ -1,16 +1,16 @@
 # Sentry & ICM integration module
 Integration module for Sentry and ICM 7.10. The module configures, captures additional information (Pipeline dict values) and provide the logback appender for sending logs to Senty.
-**Sentry**
+#### Sentry
 [Sentry](https://sentry.io/) is an application monitoring platform that captures error at runtime. With Sentry you can diagnose problems and find bugs in your code.
-**Intershop ICM**
+#### Intershop ICM
 [Intershop ICM](https://www.intershop.com/) has a 25-year track record of helping businesses digitalize their sales models and implementing commerce projects.
 # Build / Assembly Config
 There are two options for producing binaries for this module
 - Build this module as a standalone project
-- Copy the cartridges to your project
+- Copy the cartridges to your own project
 
 ### Build as a standalone project
-Create a [gradle-wrapper.properties](https://github.com/ivable/sentry/tree/develop/gradle/wrapper) file with your project's gradle distrution URL in the configuration. 
+Create a [gradle-wrapper.properties](https://github.com/ivable/sentry/tree/develop/gradle/wrapper) file with your project's gradle distrution url in the configuration. 
 See [gradle-wrapper.properties.sample](https://github.com/ivable/sentry/blob/develop/gradle/wrapper/gradle-wrapper.properties.sample) file
 ```
 distributionUrl=<URL_TO_GRADLE_DIST>
@@ -44,7 +44,7 @@ Redeploy the project
 ### Copy to own project
 Copying the source code is straight forward, simple copy the folder `ac_sentry_io` and optionally `ac_sentry_io_test` to your project and build.
 
-In you assembly's `build.gradle` file add the following to the assembly.cartridge closure.
+In your assembly's `build.gradle` file add the following to the assembly.cartridge closure.
 ```
 // Sentry module
 def ivableCartridges = [
@@ -66,7 +66,7 @@ Redeploy the project.
 # Configure
 ## DSN
 
-We suggest that you use a configuration cartridge to set the project specific settings. 
+We suggest that you use a configuration cartridge to set the project-specific settings. 
 An example cartridge can be found here:
 https://github.com/ivable/ivable-config
 
@@ -78,7 +78,7 @@ io.sentry.dns=<you-DSN-KEY>
 ```
 ## Logback
 Add the following logback appender to your project.
-An Example can be found [here](https://github.com/ivable/ivable-config/blob/develop/ivable_config/staticfiles/cartridge/logback/logback-ivable_config.xml)
+An example can be found [here](https://github.com/ivable/ivable-config/blob/develop/ivable_config/staticfiles/cartridge/logback/logback-ivable_config.xml)
 ```
 
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -111,4 +111,12 @@ An Example can be found [here](https://github.com/ivable/ivable-config/blob/deve
 	</logger>
 	<!-- END SENTRY.IO -->
 </included>
+```
+# Testing
+If you included the `ac_sentry_io_test` cartridge in your assembly you can use the following URL to test the integration.
+```
+# inspired
+http://<host>/INTERSHOP/web/WFS/inSPIRED-inTRONICS-Site/en_US/-/USD/ViewSentryTest-Start
+# Your channel
+http://<host>/INTERSHOP/web/WFS/<org-channel-Site>/en_US/-/USD/ViewSentryTest-Start
 ```
